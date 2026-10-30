@@ -1,8 +1,4 @@
-FROM nginx
-WORKDIR /web
-COPY ./usr/share/nginx/html
-ENV NOMBRE=Manuel
-ENV ENTORNO=Produccion 
-RUN apt update
-RUN apt install -y nano
-CMD ["echo", "Hola que tal $NOMBRE"]
+FROM python:3.9-slim
+WORKDIR /app
+COPY app.py .
+CMD [ "python", "app.py" ]

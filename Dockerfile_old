@@ -1,0 +1,10 @@
+FROM nginx
+WORKDIR /web
+COPY . usr/share/nginx/html
+ENV NOMBRE=Manuel
+ENV ENTORNO=Produccion 
+# RUN ejecuta un comando cuando se construye la imagen
+RUN apt update
+RUN apt install -y nano
+# CMD ejecuta un comando cuando se ejecuta el contenedor
+CMD ["echo", "Hola que tal $NOMBRE"]
