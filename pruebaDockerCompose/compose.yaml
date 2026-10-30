@@ -3,3 +3,15 @@ services:
     image: nginx
     ports:
       - "8080:80"
+    volumes:
+      - ./web:/usr/share/nginx/html
+  mysql: 
+    image: mysql
+    ports: 
+      - "3309:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Ad1234
+    volumes: 
+      - datos_mysql:/var/lib/mysql
+volumes: 
+  datos_mysql:
